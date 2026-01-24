@@ -1,5 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { campusData } from "./campusData";
+import Header from "./components/Header";
+import TabNavigation from "./components/TabNavigation";
+import ChatWindow from "./components/ChatWindow";
+import ChatInput from "./components/ChatInput";
+import HomePage from "./components/HomePage";
+import LabsPage from "./components/LabsPage";
+import DepartmentsPage from "./components/DepartmentsPage";
+import FacilitiesPage from "./components/FacilitiesPage";
+import CampusMapPage from "./components/CampusMapPage";
 
 /* ===============================
    🔁 TOGGLE: REAL GEMINI ON / OFF
@@ -75,7 +84,10 @@ function resolveEntity(text) {
       if (lower.includes(a)) return entity;
 
       for (const w of words) {
-        if (levenshtein(w, a) <= 2) return entity;
+        const lenDiff = Math.abs(w.length - a.length);
+        if (w.length < 3) continue; // too short for fuzzy match
+        if (lenDiff > 1) continue; // avoid matching multi-word aliases like "block a"
+        if (levenshtein(w, a) <= 1) return entity;
       }
     }
   }
@@ -307,9 +319,21 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [showHome, setShowHome] = useState(true);
+  const [activeTab, setActiveTab] = useState('navigator');
+
+  // Dark mode effect
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   // Expose testGeminiAPI to window for console access
-  React.useEffect(() => {
+  useEffect(() => {
     window.testGeminiAPI = testGeminiAPI;
   }, []);
 
@@ -370,55 +394,80 @@ export default function App() {
     setLoading(false);
   };
 
+  const handleSend = () => {
+    if (message.trim()) {
+      sendSystemMessage(message, false);
+      setMessage("");
+    }
+  };
+
+  const handleFollowUpClick = (text) => {
+    sendSystemMessage(text, true);
+  };
+
+  const handleGetStarted = () => {
+    setShowHome(false);
+    setActiveTab('navigator');
+  };
+
+  const scrollToFeatures = () => {
+    setShowHome(true);
+    setTimeout(() => {
+      const element = document.getElementById('why-choose');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const renderContent = () => {
+    if (showHome) {
+      return <HomePage onGetStarted={handleGetStarted} />;
+    }
+
+    switch (activeTab) {
+      case 'navigator':
+        return (
+          <>
+            <ChatWindow 
+              messages={chat} 
+              loading={loading} 
+              onFollowUpClick={handleFollowUpClick}
+            />
+            <ChatInput
+              value={message}
+              onChange={setMessage}
+              onSend={handleSend}
+              disabled={loading}
+            />
+          </>
+        );
+      case 'labs':
+        return <LabsPage />;
+      case 'departments':
+        return <DepartmentsPage />;
+      case 'facilities':
+        return <FacilitiesPage />;
+      case 'map':
+        return <CampusMapPage />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div style={{ maxWidth: 750, margin: "40px auto", padding: 20 }}>
-      <h2>Campus Navigation & Support Bot</h2>
-
-      {chat.map((c, i) => (
-        <div key={i} style={{ marginBottom: 14, whiteSpace: "pre-line" }}>
-          <b>{c.sender}:</b> {c.text}
-
-          {c.mapUrl && (
-            <div>
-              <a href={c.mapUrl} target="_blank" rel="noreferrer">
-                📍 View on Map
-              </a>
-            </div>
-          )}
-
-          {c.followUp && (
-            <div
-              style={{ fontSize: 13, color: "#2563eb", cursor: "pointer" }}
-              onClick={() =>
-                sendSystemMessage(`Where is ${c.followUp}`, true)
-              }
-            >
-              📍 Where is {c.followUp}?
-            </div>
-          )}
-        </div>
-      ))}
-
-      {loading && <i>🤖 Thinking...</i>}
-
-      <input
-        value={message}
-        onChange={e => setMessage(e.target.value)}
-        placeholder="Ask in any language…"
-        style={{ width: "100%", padding: 10, marginTop: 10 }}
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        onHome={() => setShowHome(true)}
+        onFeatures={scrollToFeatures}
+        isHome={showHome}
       />
-
-      <button
-        onClick={() => {
-          if (message.trim()) {
-            sendSystemMessage(message, false);
-            setMessage("");
-          }
-        }}
-        style={{ marginTop: 10 }}
-      >
-        Send
-      </button>
+      {!showHome && <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />}
+      <div className="flex-1">
+        {renderContent()}
+      </div>
     </div>
   );
 }

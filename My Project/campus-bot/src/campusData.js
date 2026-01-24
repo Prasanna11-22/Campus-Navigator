@@ -299,6 +299,7 @@ export const campusData = {
     official_name: "Student Hostel",
     aliases: [
       "hostel", "boys hostel", "girls hostel",
+      "block f", "f block", "block i", "i block", "block j", "j block",
 
       "விடுதி",
       "హాస్టల్",
