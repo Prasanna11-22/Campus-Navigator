@@ -320,19 +320,9 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [showHome, setShowHome] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [activeTab, setActiveTab] = useState('navigator');
-
-  // Dark mode effect
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   // Expose testGeminiAPI to window for console access
   useEffect(() => {
@@ -434,7 +424,7 @@ export default function App() {
     switch (activeTab) {
       case 'navigator':
         return (
-          <div className="flex flex-col h-full bg-gradient-to-br from-blue-950 via-purple-900 to-pink-950">
+          <div className="flex flex-col h-full bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900">
             <div className="flex-1 overflow-hidden">
               <ChatWindow 
                 messages={chat} 
@@ -453,7 +443,7 @@ export default function App() {
       case 'labs':
         return <LabsPage setActiveTab={setActiveTab} />;
       case 'departments':
-        return <DepartmentsPage />;
+        return <DepartmentsPage setActiveTab={setActiveTab} />;
       case 'facilities':
         return <FacilitiesPage />;
       case 'map':
@@ -464,10 +454,8 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900 relative">
+    <div className="flex flex-col h-screen bg-slate-950 dark">
       <Header
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         onHome={() => {
           setShowHome(true);
           setShowAbout(false);

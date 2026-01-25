@@ -11,13 +11,14 @@ export default function MessageBubble({ sender, text, isPlace }) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
       <div
-        className={`max-w-[75%] md:max-w-md rounded-2xl px-4 py-2.5 shadow-sm ${
+        className={`max-w-[75%] md:max-w-md rounded-2xl px-4 py-3 shadow-lg transform hover:scale-105 transition-all duration-300 ${
           isUser
-            ? 'bg-primary-light text-white rounded-br-none'
-            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-bl-none'
+            ? 'bg-gradient-to-r from-cyan-600 via-sky-600 to-teal-600 text-white rounded-br-none'
+            : 'bg-slate-800 text-gray-100 rounded-bl-none border border-cyan-400/30'
         }`}
+        style={isUser ? {boxShadow: '0 0 15px rgba(6, 182, 212, 0.4)'} : {boxShadow: '0 0 15px rgba(6, 182, 212, 0.2)'}}
       >
-        <p className="text-sm whitespace-pre-line break-words">{text}</p>
+        <p className="text-sm whitespace-pre-line break-words font-medium">{text}</p>
       </div>
     </div>
   );

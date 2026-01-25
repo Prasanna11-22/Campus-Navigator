@@ -21,12 +21,17 @@ export default {
           900: '#0c4a6e',
         },
         accent: {
-          purple: '#a855f7',
-          pink: '#ec4899',
-          orange: '#f97316',
-          green: '#10b981',
-          yellow: '#fbbf24',
+          cyan: '#06b6d4',
+          teal: '#14b8a6',
+          blue: '#0ea5e9',
+          indigo: '#6366f1',
+          slate: '#475569',
         }
+      },
+      backgroundColor: {
+        'dark-primary': '#0f172a',
+        'dark-secondary': '#1e293b',
+        'dark-tertiary': '#334155',
       },
       animation: {
         'gradient': 'gradient 3s ease infinite',

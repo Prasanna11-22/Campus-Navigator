@@ -4,7 +4,7 @@ const facilities = [
   {
     name: 'Central Library',
     icon: '📚',
-    gradient: 'from-blue-600 to-cyan-600',
+    gradient: 'from-cyan-600 to-sky-600',
     description: 'Modern library with digital resources and study areas',
     features: ['50,000+ Books', 'E-Library', 'Reading Rooms', 'Wi-Fi'],
     timing: '9:00 AM - 6:00 PM',
@@ -14,7 +14,7 @@ const facilities = [
   {
     name: 'Sports Complex',
     icon: '⚽',
-    gradient: 'from-green-600 to-emerald-600',
+    gradient: 'from-sky-600 to-cyan-600',
     description: 'State-of-the-art sports facilities for all students',
     features: ['Cricket Ground', 'Basketball Court', 'Gym', 'Indoor Games'],
     timing: '6:00 AM - 8:00 PM',
@@ -24,7 +24,7 @@ const facilities = [
   {
     name: 'Cafeteria',
     icon: '🍽️',
-    gradient: 'from-orange-600 to-red-600',
+    gradient: 'from-teal-600 to-cyan-600',
     description: 'Hygienic food court with variety of cuisines',
     features: ['South Indian', 'North Indian', 'Snacks', 'Beverages'],
     timing: '8:00 AM - 7:00 PM',
@@ -34,7 +34,7 @@ const facilities = [
   {
     name: 'Auditorium',
     icon: '🎭',
-    gradient: 'from-purple-600 to-pink-600',
+    gradient: 'from-cyan-600 to-teal-600',
     description: 'Modern auditorium for events and seminars',
     features: ['500 Seating', 'AC', 'Audio System', 'Projector'],
     timing: 'Event Based',
@@ -44,7 +44,7 @@ const facilities = [
   {
     name: 'Medical Center',
     icon: '🏥',
-    gradient: 'from-red-600 to-pink-600',
+    gradient: 'from-sky-600 to-teal-600',
     description: '24/7 medical facility with qualified doctors',
     features: ['First Aid', 'Doctor', 'Pharmacy', 'Ambulance'],
     timing: '24/7 Available',
@@ -54,7 +54,7 @@ const facilities = [
   {
     name: 'Innovation Lab',
     icon: '💡',
-    gradient: 'from-yellow-600 to-orange-600',
+    gradient: 'from-teal-600 to-sky-600',
     description: 'Maker space for projects and innovation',
     features: ['3D Printer', 'Electronics', 'Robotics', 'IoT Kits'],
     timing: '9:00 AM - 6:00 PM',
@@ -64,7 +64,7 @@ const facilities = [
   {
     name: 'Computer Center',
     icon: '💻',
-    gradient: 'from-indigo-600 to-blue-600',
+    gradient: 'from-cyan-600 to-sky-600',
     description: 'Central computing facility with high-speed internet',
     features: ['100+ Systems', 'High-Speed Net', 'Printing', 'Scanning'],
     timing: '8:00 AM - 8:00 PM',
@@ -74,7 +74,7 @@ const facilities = [
   {
     name: 'Hostel',
     icon: '🏠',
-    gradient: 'from-teal-600 to-green-600',
+    gradient: 'from-sky-600 to-cyan-600',
     description: 'Comfortable accommodation for students',
     features: ['Wi-Fi', 'Mess', 'Security', 'Recreation'],
     timing: '24/7',
@@ -85,14 +85,22 @@ const facilities = [
 
 export default function FacilitiesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-800 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900 p-6 overflow-hidden dark">
+      {/* Blurry background overlay */}
+      <div 
+        className="absolute inset-0 opacity-30 blur-3xl pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      ></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-10 text-center animate-fade-in">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent mb-3">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent mb-3">
             Campus Facilities
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-300 text-lg">
             World-class amenities for holistic development
           </p>
         </div>

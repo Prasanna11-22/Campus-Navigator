@@ -3,23 +3,23 @@ import React from 'react';
 export default function CampusMapPage() {
   const blocks = [
     // Ordered to mirror campusData sequence
-    { id: 'A', name: 'Science & Humanities', color: 'bg-blue-500', position: 'top-[20%] left-[12%]' },
-    { id: 'B', name: 'MBA & MCA', color: 'bg-purple-500', position: 'top-[24%] left-[30%]' },
+    { id: 'A', name: 'Science & Humanities', color: 'bg-cyan-600', position: 'top-[20%] left-[12%]' },
+    { id: 'B', name: 'MBA & MCA', color: 'bg-sky-600', position: 'top-[24%] left-[30%]' },
     { id: 'C', name: 'Computer Science & IT', color: 'bg-cyan-500', position: 'top-[32%] left-[50%]' },
-    { id: 'D', name: 'Civil & AIDS', color: 'bg-green-500', position: 'top-[26%] left-[66%]' },
-    { id: 'E', name: 'ECE / EEE / VLSI / Cyber', color: 'bg-pink-500', position: 'top-[78%] left-[26%]' },
-    { id: 'M', name: 'Mechanical', color: 'bg-orange-500', position: 'top-[12%] left-[82%]' },
+    { id: 'D', name: 'Civil & AIDS', color: 'bg-teal-600', position: 'top-[26%] left-[66%]' },
+    { id: 'E', name: 'ECE / EEE / VLSI / Cyber', color: 'bg-sky-500', position: 'top-[78%] left-[26%]' },
+    { id: 'M', name: 'Mechanical', color: 'bg-cyan-600', position: 'top-[12%] left-[82%]' },
     // Extra campus points
-    { id: 'G', name: 'CSE Labs', color: 'bg-indigo-500', position: 'top-[46%] left-[72%]' },
+    { id: 'G', name: 'CSE Labs', color: 'bg-sky-500', position: 'top-[46%] left-[72%]' },
     { id: 'H', name: 'IT Labs', color: 'bg-teal-500', position: 'top-[72%] left-[10%]' },
-    { id: 'L', name: 'Library', color: 'bg-yellow-500', position: 'top-[36%] left-[22%]' },
-    { id: 'Sports', name: 'Sports Complex', color: 'bg-green-600', position: 'top-[64%] left-[72%]' },
-    { id: 'F', name: 'Block F', color: 'bg-purple-600', position: 'top-[76%] left-[84%]' },
-    { id: 'I', name: 'Block I', color: 'bg-purple-600', position: 'top-[76%] left-[92%]' },
-    { id: 'J', name: 'Block J', color: 'bg-purple-600', position: 'top-[86%] left-[88%]' },
-    { id: 'Café', name: 'Cafeteria', color: 'bg-red-500', position: 'top-[82%] left-[52%]' },
-    { id: 'FC', name: 'Food Court', color: 'bg-rose-500', position: 'top-[40%] left-[58%]' },
-    { id: 'PC', name: 'Placement Cell', color: 'bg-amber-500', position: 'top-[52%] left-[38%]' },
+    { id: 'L', name: 'Library', color: 'bg-cyan-500', position: 'top-[36%] left-[22%]' },
+    { id: 'Sports', name: 'Sports Complex', color: 'bg-sky-600', position: 'top-[64%] left-[72%]' },
+    { id: 'F', name: 'Block F', color: 'bg-teal-600', position: 'top-[76%] left-[84%]' },
+    { id: 'I', name: 'Block I', color: 'bg-cyan-600', position: 'top-[76%] left-[92%]' },
+    { id: 'J', name: 'Block J', color: 'bg-sky-600', position: 'top-[86%] left-[88%]' },
+    { id: 'Café', name: 'Cafeteria', color: 'bg-teal-500', position: 'top-[82%] left-[52%]' },
+    { id: 'FC', name: 'Food Court', color: 'bg-cyan-500', position: 'top-[40%] left-[58%]' },
+    { id: 'PC', name: 'Placement Cell', color: 'bg-sky-500', position: 'top-[52%] left-[38%]' },
   ];
 
   const landmarks = [
@@ -32,14 +32,22 @@ export default function CampusMapPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(135deg,_#0E5C9A11_0%,_#AB47BC11_30%,_#F1883511_65%,_#607D8B11_100%)] dark:from-gray-900 dark:via-[#0E5C9A] dark:to-gray-900 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900 p-6 overflow-hidden dark">
+      {/* Blurry background overlay */}
+      <div 
+        className="absolute inset-0 opacity-30 blur-3xl pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-8 text-center animate-fade-in">
-          <h1 className="text-5xl font-bold bg-[linear-gradient(90deg,_#0E5C9A_0%,_#AB47BC_33%,_#F18835_66%,_#607D8B_100%)] bg-clip-text text-transparent mb-3">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent mb-3">
             Campus Map
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-300 text-lg">
             Interactive campus layout and navigation
           </p>
         </div>
@@ -47,7 +55,7 @@ export default function CampusMapPage() {
         {/* Map Container */}
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 border-2 border-gray-200 dark:border-gray-700">
           {/* Map Canvas */}
-          <div className="relative h-[600px] bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl border-4 border-dashed border-gray-300 dark:border-gray-500 overflow-hidden">
+          <div className="relative h-[600px] bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-4 border-dashed border-cyan-400/30 overflow-hidden dark">
             {/* Grid Pattern */}
             <div className="absolute inset-0" style={{
               backgroundImage: 'linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)',
@@ -68,9 +76,9 @@ export default function CampusMapPage() {
                 className={`absolute ${block.position} transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer animate-slide-up`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <div className={`${block.color} w-24 h-24 rounded-2xl shadow-lg flex flex-col items-center justify-center text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl group-hover:rotate-3`}>
-                  <div className="text-3xl font-bold">{block.id}</div>
-                  <div className="text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2 max-w-full overflow-hidden text-ellipsis">
+                <div className={`${block.color} w-24 h-24 rounded-2xl shadow-lg flex flex-col items-center justify-center text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl group-hover:rotate-3 font-bold text-center hover:shadow-pink-500/50 border-2 border-white/30`}>
+                  <div className="text-3xl">{block.id}</div>
+                  <div className="text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2 max-w-full overflow-hidden text-ellipsis">
                     {block.name}
                   </div>
                 </div>

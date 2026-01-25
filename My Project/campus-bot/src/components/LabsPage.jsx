@@ -10,7 +10,7 @@ const labs = [
     capacity: '60 students',
     facilities: ['60 Computers', 'Projector', 'AC', 'Linux & Windows'],
     icon: '💻',
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-cyan-400 to-sky-400'
   },
   { 
     name: 'Database Management Lab',
@@ -21,7 +21,7 @@ const labs = [
     capacity: '50 students',
     facilities: ['50 Computers', 'MySQL Server', 'Oracle DB', 'AC'],
     icon: '🗄️',
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-teal-400 to-cyan-400'
   },
   { 
     name: 'Computer Networks Lab',
@@ -32,7 +32,7 @@ const labs = [
     capacity: '55 students',
     facilities: ['Network Equipment', 'Cisco Tools', 'Servers', 'AC'],
     icon: '🌐',
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-sky-400 to-cyan-400'
   },
   { 
     name: 'AI & Machine Learning Lab',
@@ -43,7 +43,7 @@ const labs = [
     capacity: '40 students',
     facilities: ['GPU Workstations', 'Python', 'TensorFlow', 'Jupyter'],
     icon: '🤖',
-    color: 'from-orange-500 to-red-500'
+    color: 'from-cyan-400 to-teal-400'
   },
   { 
     name: 'Data Structures Lab',
@@ -54,7 +54,7 @@ const labs = [
     capacity: '60 students',
     facilities: ['60 Computers', 'C/C++ IDE', 'Debugging Tools'],
     icon: '📊',
-    color: 'from-indigo-500 to-purple-500'
+    color: 'from-sky-400 to-blue-400'
   },
   { 
     name: 'Web Technology Lab',
@@ -65,7 +65,7 @@ const labs = [
     capacity: '50 students',
     facilities: ['Modern Browsers', 'VS Code', 'Node.js', 'React Setup'],
     icon: '🌍',
-    color: 'from-pink-500 to-rose-500'
+    color: 'from-teal-400 to-sky-400'
   },
   {
     name: 'Electronics Lab',
@@ -76,7 +76,7 @@ const labs = [
     capacity: '45 students',
     facilities: ['Multimeters', 'Oscilloscopes', 'Signal Generators', 'Breadboards'],
     icon: '⚡',
-    color: 'from-yellow-500 to-orange-500'
+    color: 'from-cyan-500 to-sky-500'
   },
   {
     name: 'Digital Electronics Lab',
@@ -87,7 +87,7 @@ const labs = [
     capacity: '48 students',
     facilities: ['Logic Analyzers', 'FPGA Boards', 'Programmers', 'Training Kits'],
     icon: '🔌',
-    color: 'from-red-500 to-pink-500'
+    color: 'from-sky-500 to-cyan-500'
   },
   {
     name: 'Microprocessors & Microcontrollers Lab',
@@ -98,7 +98,7 @@ const labs = [
     capacity: '50 students',
     facilities: ['8051/ARM Kits', 'Assembly Tools', 'Programmers', 'Debuggers'],
     icon: '🎛️',
-    color: 'from-purple-500 to-indigo-500'
+    color: 'from-teal-500 to-cyan-500'
   },
   {
     name: 'Power Electronics Lab',
@@ -109,7 +109,7 @@ const labs = [
     capacity: '40 students',
     facilities: ['Power Supply Units', 'Rectifiers', 'Inverters', 'Oscilloscopes'],
     icon: '⚙️',
-    color: 'from-green-500 to-teal-500'
+    color: 'from-cyan-500 to-teal-500'
   },
   {
     name: 'Civil Engineering Materials Lab',
@@ -120,7 +120,7 @@ const labs = [
     capacity: '30 students',
     facilities: ['Testing Machines', 'Compression Tester', 'Tensile Tester', 'Balance'],
     icon: '🧪',
-    color: 'from-cyan-500 to-blue-500'
+    color: 'from-sky-400 to-teal-400'
   },
   {
     name: 'Structural Analysis Lab',
@@ -131,7 +131,7 @@ const labs = [
     capacity: '35 students',
     facilities: ['Load Testing Equipment', 'Strain Gauges', 'Data Logger', 'Software'],
     icon: '🏗️',
-    color: 'from-slate-500 to-gray-500'
+    color: 'from-slate-400 to-gray-400'
   },
   {
     name: 'Soil Mechanics Lab',
@@ -142,7 +142,7 @@ const labs = [
     capacity: '32 students',
     facilities: ['Triaxial Cell', 'Consolidation Apparatus', 'Sieve Analysis Kit', 'Proctor Apparatus'],
     icon: '🌍',
-    color: 'from-amber-600 to-orange-600'
+    color: 'from-cyan-600 to-teal-600'
   },
   {
     name: 'Mechanical Workshop',
@@ -153,7 +153,7 @@ const labs = [
     capacity: '25 students',
     facilities: ['Lathe Machine', 'Milling Machine', 'Shaper', 'Drilling Machine'],
     icon: '🔧',
-    color: 'from-orange-600 to-red-600'
+    color: 'from-teal-600 to-sky-600'
   },
   {
     name: 'Thermodynamics Lab',
@@ -164,7 +164,7 @@ const labs = [
     capacity: '40 students',
     facilities: ['Boiler Unit', 'Calorimeter', 'Thermal Analyzer', 'Pressure Gauge'],
     icon: '🌡️',
-    color: 'from-red-500 to-pink-500'
+    color: 'from-sky-500 to-cyan-500'
   },
   {
     name: 'Fluid Mechanics Lab',
@@ -175,7 +175,7 @@ const labs = [
     capacity: '38 students',
     facilities: ['Flow Meters', 'Hydraulic Bench', 'Pump Unit', 'Manometers'],
     icon: '💧',
-    color: 'from-blue-600 to-cyan-600'
+    color: 'from-cyan-600 to-sky-600'
   },
 ];
 
@@ -197,19 +197,19 @@ export default function LabsPage({ setActiveTab }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-950 via-purple-900 to-pink-950 p-6 overflow-hidden">
-      {/* Blurry background overlay */}
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900 p-6 overflow-hidden">
+      {/* Cool glow background overlay */}
       <div 
-        className="absolute inset-0 opacity-30 blur-3xl pointer-events-none"
+        className="absolute inset-0 opacity-20 blur-3xl pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          background: 'radial-gradient(ellipse at center, rgba(6, 182, 212, 0.2) 0%, transparent 70%)'
         }}
       ></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-400 bg-clip-text text-transparent mb-2">
             Computer Labs
           </h1>
           <p className="text-gray-300">
@@ -253,7 +253,7 @@ export default function LabsPage({ setActiveTab }) {
 
                 {/* Capacity */}
                 <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
+                  <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
                     👥
                   </div>
                   <div>
