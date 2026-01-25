@@ -83,7 +83,13 @@ const facilities = [
   },
 ];
 
-export default function FacilitiesPage() {
+export default function FacilitiesPage({ setActiveTab }) {
+  const navigateToBlock = (location) => {
+    if (setActiveTab) {
+      setActiveTab('map');
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900 p-6 overflow-hidden dark">
       {/* Blurry background overlay */}
@@ -152,17 +158,23 @@ export default function FacilitiesPage() {
                       <p className="font-semibold text-gray-800 dark:text-white">{facility.timing}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
+                  <button
+                    onClick={() => navigateToBlock(facility.location)}
+                    className="w-full flex items-center gap-2 text-sm hover:opacity-80 transition-opacity"
+                  >
                     <span className="text-lg">📍</span>
-                    <div>
+                    <div className="text-left">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Location</p>
-                      <p className="font-semibold text-gray-800 dark:text-white">{facility.location}</p>
+                      <p className="font-semibold text-gray-800 dark:text-white hover:text-cyan-400 transition-colors">{facility.location}</p>
                     </div>
-                  </div>
+                  </button>
                 </div>
 
                 {/* Action Button */}
-                <button className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${facility.gradient} text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-sm`}>
+                <button
+                  onClick={() => navigateToBlock(facility.location)}
+                  className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${facility.gradient} text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-sm`}
+                >
                   Get Directions
                 </button>
               </div>

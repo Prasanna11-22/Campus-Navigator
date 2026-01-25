@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CampusMapPage() {
+export default function CampusMapPage({ setActiveTab }) {
   const blocks = [
     // Ordered to mirror campusData sequence
     { id: 'A', name: 'Science & Humanities', color: 'bg-cyan-600', position: 'top-[20%] left-[12%]' },
@@ -71,9 +71,10 @@ export default function CampusMapPage() {
 
             {/* Blocks */}
             {blocks.map((block, index) => (
-              <div
+              <button
                 key={block.id}
-                className={`absolute ${block.position} transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer animate-slide-up`}
+                onClick={() => {}}
+                className={`absolute ${block.position} transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer animate-slide-up border-0 bg-transparent`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div className={`${block.color} w-24 h-24 rounded-2xl shadow-lg flex flex-col items-center justify-center text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl group-hover:rotate-3 font-bold text-center hover:shadow-pink-500/50 border-2 border-white/30`}>
@@ -87,7 +88,7 @@ export default function CampusMapPage() {
                   {block.name}
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-gray-900"></div>
                 </div>
-              </div>
+              </button>
             ))}
 
             {/* Landmarks */}
@@ -144,7 +145,11 @@ export default function CampusMapPage() {
 
           {/* Campus Location Button */}
           <div className="mt-6 text-center">
-            <button className="px-8 py-4 bg-[linear-gradient(120deg,_#0E5C9A_0%,_#AB47BC_100%)] text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:brightness-110 transform hover:scale-105 transition-all duration-300">
+            <button
+              onClick={() => {}}
+              className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:brightness-110 transform hover:scale-105 transition-all duration-300"
+              style={{boxShadow: '0 0 20px rgba(6, 182, 212, 0.3)'}}
+            >
               📍 Campus Location
             </button>
           </div>

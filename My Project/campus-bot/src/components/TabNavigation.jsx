@@ -10,9 +10,9 @@ export default function TabNavigation({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <nav className="relative z-40 bg-gradient-to-r from-cyan-600/10 via-sky-600/10 to-teal-600/10 shadow-lg border-b border-cyan-500/30 backdrop-blur-md dark" style={{boxShadow: '0 0 20px rgba(6, 182, 212, 0.1)'}}>
+    <nav className="relative z-40 bg-gradient-to-r from-cyan-600/10 via-sky-600/10 to-teal-600/10 shadow-lg border-b border-cyan-500/30 backdrop-blur-md dark overflow-x-auto scrollbar-hide" style={{boxShadow: '0 0 20px rgba(6, 182, 212, 0.1)'}}>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap gap-2 py-3">
+        <div className="flex flex-nowrap gap-2 py-3 overflow-x-auto scrollbar-hide min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.id}

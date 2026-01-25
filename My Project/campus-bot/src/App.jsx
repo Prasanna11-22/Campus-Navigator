@@ -445,9 +445,9 @@ export default function App() {
       case 'departments':
         return <DepartmentsPage setActiveTab={setActiveTab} />;
       case 'facilities':
-        return <FacilitiesPage />;
+        return <FacilitiesPage setActiveTab={setActiveTab} />;
       case 'map':
-        return <CampusMapPage />;
+        return <CampusMapPage setActiveTab={setActiveTab} />;
       default:
         return null;
     }
