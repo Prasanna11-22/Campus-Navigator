@@ -85,7 +85,7 @@ export const campusData = {
       second: "Advanced computing labs",
       third: "Research and project labs"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.879015,77.020482" }
   },
 
   /* =====================================================
@@ -111,7 +111,7 @@ export const campusData = {
       first: "Civil classrooms",
       second: "AIDS department labs"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.879215,77.021549" }
   },
 
   /* =====================================================
@@ -138,7 +138,7 @@ export const campusData = {
       second: "VLSI and embedded labs",
       third: "Cyber security labs"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.877071,77.020843" }
   },
 
   /* =====================================================
@@ -164,7 +164,7 @@ export const campusData = {
       first: "Mechanical classrooms",
       second: "Thermal and CAD labs"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.8802599,77.0209488" }
   },
 
   /* =====================================================
@@ -221,7 +221,7 @@ export const campusData = {
       ground: "Training halls",
       first: "Interview and HR rooms"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.879355,77.020408" }
   },
 
   /* =====================================================
@@ -244,7 +244,7 @@ export const campusData = {
     floor_guide: {
       ground: "Dining area"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.878854,77.021576" }
   },
 
   CAFETERIA_2: {
@@ -264,7 +264,7 @@ export const campusData = {
     floor_guide: {
       ground: "Dining area"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.878288,77.020416" }
   },
 
   /* =====================================================
@@ -289,7 +289,7 @@ export const campusData = {
       first: "Textbooks and journals",
       second: "Digital library"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.880350,77.021481" }
   },
 
   /* =====================================================
@@ -314,7 +314,7 @@ export const campusData = {
       ground: "Reception and warden office",
       upper: "Student rooms"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.877158,77.021662" }
   },
 
   ADMIN_OFFICE: {
@@ -334,6 +334,98 @@ export const campusData = {
     floor_guide: {
       ground: "Administration and accounts"
     },
-    map: { query: "LAT_LNG_TO_BE_ADDED" }
+    map: { query: "10.8797825,77.0220499" }
+  },
+
+  /* =====================================================
+     AUDITORIUM
+  ====================================================== */
+  AUDITORIUM: {
+    official_name: "College Auditorium",
+    aliases: [
+      "auditorium", "college auditorium", "hall",
+
+      "கூட்ட ஹால்",
+      "ఆడిటోరియం",
+      "ऑडिटोरियम",
+      "ಆಡಿಟೋರಿಯಂ",
+      "ഓഡിറ്റോറിയം"
+    ],
+    location: "Central Campus Area",
+    guidance:
+      "Located in the heart of the campus between academic blocks.",
+    floor_guide: {
+      ground: "Main auditorium seating"
+    },
+    map: { query: "10.8788478,77.0211587" }
+  },
+
+  /* =====================================================
+     OPEN AMPHITHEATRE
+  ====================================================== */
+  OPEN_AMPHITHEATRE: {
+    official_name: "Open Amphitheatre",
+    aliases: [
+      "amphitheatre", "open amphitheatre", "outdoor stage",
+
+      "திறந்த நாடக மंच",
+      "ఓపెన్ అంఫిథియేటర్",
+      "खुला एम्फिथिएटर",
+      "ತೆರೆದ ಆಂಫಿಥಿಯೇಟರ್",
+      "തുറന്ന അമ്ഫിതിയേറ്റർ"
+    ],
+    location: "Campus Ground Area",
+    guidance:
+      "Located near the central campus ground for outdoor events and functions.",
+    floor_guide: {
+      ground: "Seating area with stage"
+    },
+    map: { query: "10.879396,77.020704" }
+  },
+
+  /* =====================================================
+     CENTRAL STORE
+  ====================================================== */
+  CENTRAL_STORE: {
+    official_name: "Central Store",
+    aliases: [
+      "store", "central store", "college store", "stationary store",
+
+      "சேமிப்பு",
+      "స్టోర్",
+      "स्टोर",
+      "ಸ್ಟೋರ್",
+      "സ്റ്റോർ"
+    ],
+    location: "Near Main Campus",
+    guidance:
+      "Located near the academic blocks, accessible from the main campus area.",
+    floor_guide: {
+      ground: "Store counter and supplies"
+    },
+    map: { query: "10.878433,77.021065" }
+  },
+
+  /* =====================================================
+     SPORTS GROUND
+  ====================================================== */
+  SPORTS_GROUND: {
+    official_name: "Sports Ground",
+    aliases: [
+      "sports", "sports ground", "ground", "playground", "field",
+
+      "விளையாட்டு மைதानം",
+      "క్రీడల మైదానం",
+      "खेल मैदान",
+      "ಕ್ರೀಡಾ ಮೈದಾನ",
+      "സ്പോർട്സ് ഗ്രൗണ്ട്"
+    ],
+    location: "College Ground Area",
+    guidance:
+      "Proceed towards the college ground for sports facilities and outdoor activities.",
+    floor_guide: {
+      ground: "Sports facilities and field"
+    },
+    map: { query: "10.877071,77.020843" }
   }
 };

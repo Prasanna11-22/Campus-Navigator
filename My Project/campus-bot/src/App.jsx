@@ -9,6 +9,7 @@ import LabsPage from "./components/LabsPage";
 import DepartmentsPage from "./components/DepartmentsPage";
 import FacilitiesPage from "./components/FacilitiesPage";
 import CampusMapPage from "./components/CampusMapPage";
+import AboutPage from "./components/AboutPage";
 
 /* ===============================
    🔁 TOGGLE: REAL GEMINI ON / OFF
@@ -321,6 +322,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [showHome, setShowHome] = useState(true);
+  const [showAbout, setShowAbout] = useState(false);
   const [activeTab, setActiveTab] = useState('navigator');
 
   // Dark mode effect
@@ -421,6 +423,10 @@ export default function App() {
   };
 
   const renderContent = () => {
+    if (showAbout) {
+      return <AboutPage />;
+    }
+
     if (showHome) {
       return <HomePage onGetStarted={handleGetStarted} />;
     }
@@ -428,22 +434,24 @@ export default function App() {
     switch (activeTab) {
       case 'navigator':
         return (
-          <>
-            <ChatWindow 
-              messages={chat} 
-              loading={loading} 
-              onFollowUpClick={handleFollowUpClick}
-            />
+          <div className="flex flex-col h-full bg-gradient-to-br from-blue-950 via-purple-900 to-pink-950">
+            <div className="flex-1 overflow-hidden">
+              <ChatWindow 
+                messages={chat} 
+                loading={loading} 
+                onFollowUpClick={handleFollowUpClick}
+              />
+            </div>
             <ChatInput
               value={message}
               onChange={setMessage}
               onSend={handleSend}
               disabled={loading}
             />
-          </>
+          </div>
         );
       case 'labs':
-        return <LabsPage />;
+        return <LabsPage setActiveTab={setActiveTab} />;
       case 'departments':
         return <DepartmentsPage />;
       case 'facilities':
@@ -456,16 +464,23 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900 relative">
       <Header
         darkMode={darkMode}
         setDarkMode={setDarkMode}
-        onHome={() => setShowHome(true)}
+        onHome={() => {
+          setShowHome(true);
+          setShowAbout(false);
+        }}
         onFeatures={scrollToFeatures}
+        onAbout={() => {
+          setShowAbout(true);
+          setShowHome(false);
+        }}
         isHome={showHome}
       />
-      {!showHome && <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />}
-      <div className="flex-1">
+      {!showHome && !showAbout && <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />}
+      <div className="flex-1 overflow-y-auto relative z-10">
         {renderContent()}
       </div>
     </div>

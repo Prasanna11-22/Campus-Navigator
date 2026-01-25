@@ -4,7 +4,7 @@ const labs = [
   { 
     name: 'Operating Systems Lab',
     code: 'OS LAB',
-    block: 'J',
+    block: 'C',
     room: 'K12',
     floor: '2nd Floor',
     capacity: '60 students',
@@ -15,7 +15,7 @@ const labs = [
   { 
     name: 'Database Management Lab',
     code: 'DBMS LAB',
-    block: 'H',
+    block: 'C',
     room: 'L23',
     floor: '1st Floor',
     capacity: '50 students',
@@ -26,7 +26,7 @@ const labs = [
   { 
     name: 'Computer Networks Lab',
     code: 'CN LAB',
-    block: 'G',
+    block: 'C',
     room: 'M15',
     floor: 'Ground Floor',
     capacity: '55 students',
@@ -37,7 +37,7 @@ const labs = [
   { 
     name: 'AI & Machine Learning Lab',
     code: 'AI LAB',
-    block: 'F',
+    block: 'C',
     room: 'N10',
     floor: '3rd Floor',
     capacity: '40 students',
@@ -48,7 +48,7 @@ const labs = [
   { 
     name: 'Data Structures Lab',
     code: 'DS LAB',
-    block: 'E',
+    block: 'C',
     room: 'P20',
     floor: '2nd Floor',
     capacity: '60 students',
@@ -59,7 +59,7 @@ const labs = [
   { 
     name: 'Web Technology Lab',
     code: 'WT LAB',
-    block: 'D',
+    block: 'C',
     room: 'Q18',
     floor: '1st Floor',
     capacity: '50 students',
@@ -67,18 +67,152 @@ const labs = [
     icon: '🌍',
     color: 'from-pink-500 to-rose-500'
   },
+  {
+    name: 'Electronics Lab',
+    code: 'ELEC LAB',
+    block: 'E',
+    room: 'R05',
+    floor: 'Ground Floor',
+    capacity: '45 students',
+    facilities: ['Multimeters', 'Oscilloscopes', 'Signal Generators', 'Breadboards'],
+    icon: '⚡',
+    color: 'from-yellow-500 to-orange-500'
+  },
+  {
+    name: 'Digital Electronics Lab',
+    code: 'DIGITAL LAB',
+    block: 'E',
+    room: 'R06',
+    floor: '1st Floor',
+    capacity: '48 students',
+    facilities: ['Logic Analyzers', 'FPGA Boards', 'Programmers', 'Training Kits'],
+    icon: '🔌',
+    color: 'from-red-500 to-pink-500'
+  },
+  {
+    name: 'Microprocessors & Microcontrollers Lab',
+    code: 'MICRO LAB',
+    block: 'E',
+    room: 'R07',
+    floor: '2nd Floor',
+    capacity: '50 students',
+    facilities: ['8051/ARM Kits', 'Assembly Tools', 'Programmers', 'Debuggers'],
+    icon: '🎛️',
+    color: 'from-purple-500 to-indigo-500'
+  },
+  {
+    name: 'Power Electronics Lab',
+    code: 'POWER LAB',
+    block: 'E',
+    room: 'R08',
+    floor: '3rd Floor',
+    capacity: '40 students',
+    facilities: ['Power Supply Units', 'Rectifiers', 'Inverters', 'Oscilloscopes'],
+    icon: '⚙️',
+    color: 'from-green-500 to-teal-500'
+  },
+  {
+    name: 'Civil Engineering Materials Lab',
+    code: 'MAT LAB',
+    block: 'D',
+    room: 'S10',
+    floor: 'Ground Floor',
+    capacity: '30 students',
+    facilities: ['Testing Machines', 'Compression Tester', 'Tensile Tester', 'Balance'],
+    icon: '🧪',
+    color: 'from-cyan-500 to-blue-500'
+  },
+  {
+    name: 'Structural Analysis Lab',
+    code: 'STRUCT LAB',
+    block: 'D',
+    room: 'S11',
+    floor: '1st Floor',
+    capacity: '35 students',
+    facilities: ['Load Testing Equipment', 'Strain Gauges', 'Data Logger', 'Software'],
+    icon: '🏗️',
+    color: 'from-slate-500 to-gray-500'
+  },
+  {
+    name: 'Soil Mechanics Lab',
+    code: 'SOIL LAB',
+    block: 'D',
+    room: 'S12',
+    floor: '2nd Floor',
+    capacity: '32 students',
+    facilities: ['Triaxial Cell', 'Consolidation Apparatus', 'Sieve Analysis Kit', 'Proctor Apparatus'],
+    icon: '🌍',
+    color: 'from-amber-600 to-orange-600'
+  },
+  {
+    name: 'Mechanical Workshop',
+    code: 'WORKSHOP',
+    block: 'M',
+    room: 'T01',
+    floor: 'Ground Floor',
+    capacity: '25 students',
+    facilities: ['Lathe Machine', 'Milling Machine', 'Shaper', 'Drilling Machine'],
+    icon: '🔧',
+    color: 'from-orange-600 to-red-600'
+  },
+  {
+    name: 'Thermodynamics Lab',
+    code: 'THERMO LAB',
+    block: 'M',
+    room: 'T02',
+    floor: '1st Floor',
+    capacity: '40 students',
+    facilities: ['Boiler Unit', 'Calorimeter', 'Thermal Analyzer', 'Pressure Gauge'],
+    icon: '🌡️',
+    color: 'from-red-500 to-pink-500'
+  },
+  {
+    name: 'Fluid Mechanics Lab',
+    code: 'FLUID LAB',
+    block: 'M',
+    room: 'T03',
+    floor: '2nd Floor',
+    capacity: '38 students',
+    facilities: ['Flow Meters', 'Hydraulic Bench', 'Pump Unit', 'Manometers'],
+    icon: '💧',
+    color: 'from-blue-600 to-cyan-600'
+  },
 ];
 
-export default function LabsPage() {
+export default function LabsPage({ setActiveTab }) {
+  const blockCoordinates = {
+    'C': '10.879015,77.020482',
+    'D': '10.879215,77.021549',
+    'E': '10.877071,77.020843',
+    'M': '10.8802599,77.0209488'
+  };
+
+  const handleGetDirections = (blockLetter) => {
+    // Open Google Maps in a new tab
+    const coordinates = blockCoordinates[blockLetter];
+    if (coordinates) {
+      const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(coordinates)}`;
+      window.open(mapUrl, '_blank');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-950 via-purple-900 to-pink-950 p-6 overflow-hidden">
+      {/* Blurry background overlay */}
+      <div 
+        className="absolute inset-0 opacity-30 blur-3xl pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      ></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
             Computer Labs
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-300">
             State-of-the-art laboratories equipped with modern technology
           </p>
         </div>
@@ -144,7 +278,9 @@ export default function LabsPage() {
                 </div>
 
                 {/* Action Button */}
-                <button className={`w-full py-3 rounded-lg bg-gradient-to-r ${lab.color} text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300`}>
+                <button 
+                  onClick={() => handleGetDirections(lab.block)}
+                  className={`w-full py-3 rounded-lg bg-gradient-to-r ${lab.color} text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300`}>
                   View Directions
                 </button>
               </div>
