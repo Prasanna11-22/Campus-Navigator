@@ -24,6 +24,7 @@ Switch between multiple Indian languages
 This project demonstrates scalable architecture, modern UI design, and real-world AI integration.
 
 🚀 Key Features
+
 1️⃣ Interactive Campus Map – Visual Navigation
 
 Dynamic and clickable campus map
@@ -211,6 +212,7 @@ Levenshtein Distance (Fuzzy Search)
 
 
 📱 Feature Breakdown by Category
+
 Category	Features Included
 Navigation	Interactive Map, Turn-by-Turn Routing
 AI	Gemini Chat Assistant
